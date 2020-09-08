@@ -1,0 +1,314 @@
+//App
+delete(id) {
+    let items = this.state.items;
+    remove(items, (item) => {
+      return item.id === id;
+    });
+    this.setState({
+      items: items
+    });
+  }
+
+complete(id) {
+    let item = this.state.items.find((i) => {
+      return i.id === id;
+    });
+    item.complete = !item.complete;
+    this.setState({
+      items: items
+    });
+    console.log(item.complete);
+  }
+
+    completeTask(id) {
+    this.setState((state) => {
+      const items = state.items.map((item, index) => {
+        if (item.id === id) {
+          return {
+            ...item,
+            complete: !this.complete
+          };
+        } else {
+          return item;
+        }
+      });
+      return { items };
+    });
+    console.log(this.state.items);
+  }
+/////////
+//item
+    let className = "";
+    if (this.props.complete) {
+      className += "taskdone";
+    }
+    <tr className={className}>
+            <th style={{ width: "10%" }}>{this.props.index + 1}</th>
+            <th style={{ width: "10%" }}>
+              <input
+                type="checkbox"
+                onClick={() => this.taskDone(this.props.id)}
+              />
+            </th>
+            <th style={{ width: "40%" }}>{this.props.name}</th>
+            <th style={{ width: "10%" }}>
+              <button
+                onClick={() => this.delete(this.props.id)}
+                className="btn btn-danger"
+              >
+                del
+              </button>
+            </th>
+          </tr>
+//////////////////////////////
+constructor(props) {
+    super(props);
+    this.state = {
+      isDone: false
+    };
+    this.taskDone = this.taskDone.bind(this);
+    this.delete = this.delete.bind(this);
+  }
+
+  taskDone(id) {
+    this.setState({
+      isDone: !this.state.isDone
+    });
+    this.props.onClickComplete(id);
+  }
+  delete(id) {
+    this.props.onClickDelete(id);
+  }
+
+  render() {
+    let className = "";
+    if (this.props.complete) {
+      className = className + "taskdone";
+    }
+    let Task = (
+      <tr>
+        <th style={{ width: "10%" }}>{this.props.index + 1}</th>
+        <th style={{ width: "10%" }}>
+          <input type="checkbox" onClick={() => this.taskDone(this.props.id)} />
+        </th>
+        <th style={{ width: "40%" }}>{this.props.name}</th>
+        <th style={{ width: "10%" }}>
+          <button
+            onClick={() => this.delete(this.props.id)}
+            className="btn btn-danger"
+          >
+            del
+          </button>
+        </th>
+      </tr>
+    );
+    if (this.state.isDone) {
+      Task = (
+        <tr className="taskdone">
+          <th style={{ width: "10%" }}>{this.props.index + 1}</th>
+          <th style={{ width: "10%" }}>
+            <input
+              type="checkbox"
+              onClick={() => this.taskDone(this.props.id)}
+            />
+          </th>
+          <th style={{ width: "40%" }}>{this.props.name}</th>
+          <th style={{ width: "10%" }}>
+            <button
+              onClick={() => this.delete(this.props.id)}
+              className="btn btn-danger"
+            >
+              del
+            </button>
+          </th>
+        </tr>
+      );
+    }
+    return (
+      <table>
+        <tbody>{Task}</tbody>
+      </table>
+/////////////////////////////////////////////////
+constructor(props) {
+    super(props);
+    this.state = {
+      valueCheck: false
+    };
+    this.delete = this.delete.bind(this);
+    this.taskDone = this.taskDone.bind(this);
+  }
+  taskDone(id) {
+    this.props.taskDone(id);
+    this.setState({
+      valueCheck: !this.state.valueCheck
+    });
+  }
+
+  delete(id) {
+    this.props.onClickDelete(id);
+  }
+
+  render() {
+    let className = "";
+    if (this.state.valueCheck) {
+      className = className + "taskdone";
+    }
+    return (
+      <table>
+        <tbody>
+          <tr>
+            <th className={className} style={{ width: "10%" }}>
+              {this.props.index + 1}
+            </th>
+            <th className={className} style={{ width: "10%" }}>
+              <input
+                type="checkbox"
+                onChange={() => this.taskDone(this.props.id)}
+              />
+            </th>
+            <th className={className} style={{ width: "40%" }}>
+              {this.props.name}
+            </th>
+            <th style={{ width: "10%" }}>
+              <button
+                onClick={() => this.delete(this.props.id)}
+                className="btn btn-danger"
+              >
+                del
+              </button>
+            </th>
+          </tr>
+        </tbody>
+      </table>
+    );
+  }
+}
+//////////////////////////////////////////////////
+//pagingnate
+  onAll() {
+    this.setState({
+      items: itemtsk
+    });
+  }
+  onFilComplete() {
+    let arrCom = itemtsk.filter((item) => item.complete === true);
+    this.setState({
+      items: arrCom,
+      arrCom: this.state.items
+    });
+    console.log(arrCom);
+  }
+  onFilActive() {
+    let arrAct = itemtsk.filter((item) => item.complete === false);
+    this.setState(() => {
+      return { arrAct };
+    });
+    console.log(arrAct);
+  }
+///////////////////////////////////////
+   //pagingnate
+  onAll() {
+    this.setState({
+      isAll: !this.state.isAll
+    });
+  }
+  onFilComplete() {
+    this.setState({
+      isCom: !this.state.isCom
+    });
+  }
+  onFilActive() {
+    this.setState({
+      isAc: !this.state.isAc
+    });
+  }
+
+  render() {
+    let arrCom = itemtsk.filter((item) => item.complete === true);
+    let arrAct = itemtsk.filter((item) => item.complete === false);
+    let items = this.state.items;
+    if (this.state.isCom) {
+      items = arrCom;
+    }
+    if (this.state.isAc) {
+      items = arrAct;
+    }
+///////////////////////////////////////////////////////////////////////////
+Form-Class 
+class Form extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      taskvalue: ""
+    };
+  }
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    if (this.state.taskvalue === "") return;
+    this.props.onFormSubmit(this.state.taskvalue);
+    this.setState({ taskvalue: "" });
+  };
+
+  render() {
+    return (
+      <div>
+        <form onSubmit={this.handleSubmit}>
+          <input
+            type="text"
+            className="inputbox"
+            placeholder="Enter Task..."
+            value={this.state.taskvalue}
+            onChange={(e) => this.setState({ taskvalue: e.target.value })}
+          />
+        </form>
+      </div>
+    );
+  }
+}
+
+export default Form;
+(app.js)
+  handleSubmit = (task) => {
+    const add = this.state.items;
+    const objadd = { id: uuidv4(), name: task, complete: false };
+    add.push(objadd);
+    this.setState({ items: add });
+  };
+/////////////////////////////////////////////////////////////////
+Form Hook
+import React, { useState } from "react";
+
+function Form(props) {
+  const { onSubmit } = props;
+  const [value, setValue] = useState("");
+
+  function handleValue(e) {
+    setValue(e.target.value);
+  }
+  function handleSubmit(e) {
+    e.preventDefault();
+    const formValues = {
+      name: value,
+      complete: false
+    };
+    onSubmit(formValues);
+    setValue("");
+  }
+
+  return (
+    <div>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          className="inputbox"
+          placeholder="Enter Todo Task..."
+          value={value}
+          onChange={handleValue}
+        />
+      </form>
+    </div>
+  );
+}
+
+export default Form;

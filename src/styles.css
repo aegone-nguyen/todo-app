@@ -1,0 +1,225 @@
+.main-background {
+  background: radial-gradient(
+    ellipse at left,
+    rgb(43, 108, 112) 0%,
+    rgba(36, 87, 88, 0.9) 59%,
+    rgba(101, 177, 82, 0.9) 100%
+  );
+}
+
+.todo-title {
+  font-family: sans-serif;
+  color: rgb(237, 236, 243);
+}
+
+.taskdone {
+  opacity: 0.3;
+  text-decoration: line-through;
+  transition: width 0.5s ease-in-out;
+}
+
+.inputbox {
+  width: 150px;
+  height: 35px;
+  border: 1.5px;
+  border-style: ridge;
+  border-radius: 5px;
+  margin-left: 60px;
+  transition: width 0.5s ease-in-out;
+  background: rgb(183, 223, 233);
+}
+.inputbox:focus {
+  width: 300px;
+}
+
+.list-decor {
+  margin-left: 70px;
+}
+
+.button-default {
+  background-color: rgb(190, 241, 226);
+  border-style: solid;
+  border-width: 1px;
+  color: black;
+  padding: 10px 20px;
+  border-radius: 5px;
+  box-shadow: 2px 4px 2px grey;
+}
+.button-default:hover {
+  background-color: green;
+  color: pink;
+}
+.button-default:active {
+  background-color: green;
+  box-shadow: 2px 0px 2px grey;
+  transform: translateY(5px);
+}
+
+.button-active {
+  background-color: rgb(25, 163, 25);
+  border-style: solid;
+  border-width: 1px;
+  color: black;
+  padding: 10px 20px;
+  border-radius: 5px;
+  box-shadow: 0.5px 0.5px 0.5px grey;
+}
+.button-active:hover {
+  cursor: not-allowed;
+}
+
+.button-delete {
+  background-color: red;
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  box-shadow: 2px 4px 2px grey;
+}
+.button-delete:hover {
+  background-color: Maroon;
+}
+.button-delete:active {
+  background-color: Maroon;
+  box-shadow: 2px 0px 2px grey;
+  transform: translateY(5px);
+}
+.button-Toggle {
+  background-color: rgb(74, 74, 236);
+  border-style: solid;
+  border-width: 1px;
+  color: black;
+  padding: 10px 20px;
+  border-radius: 5px;
+  box-shadow: 2px 4px 2px grey;
+}
+.button-Toggle:hover {
+  background-color: blue;
+}
+.button-Toggle:active {
+  background-color: blue;
+  box-shadow: 2px 0px 2px grey;
+  transform: translateY(5px);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Nunito", sans-serif;
+}
+
+.button-login {
+  border: none;
+  outline: none;
+  width: 100%;
+  padding: 15px 50px;
+  color: #fff;
+  font-size: 16px;
+  letter-spacing: 1px;
+  background: #293783;
+  cursor: pointer;
+}
+.button-login:hover {
+  background: #46508d;
+}
+.button-login:active {
+  background: #46508d;
+  transform: translateY(5px);
+}
+
+.app-background {
+  width: 100%;
+  padding: 40px;
+  margin-left: 300px;
+}
+
+.login {
+  width: 100%;
+  min-height: 100vh;
+  padding: 0 20px;
+  display: flex;
+}
+
+.login .loginContainer {
+  padding: 60px;
+  margin: auto;
+  width: 100%;
+  max-width: 520px;
+  min-height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: radial-gradient(
+    ellipse at left bottom,
+    rgb(43, 108, 112) 0%,
+    rgba(20, 70, 72, 0.9) 59%,
+    rgba(46, 126, 26, 0.9) 100%
+  );
+  box-shadow: 0 50px 70px -20px rgba(0, 0, 0, 0.8);
+}
+
+.login .loginContainer label {
+  color: white;
+  margin: 14px 0;
+  display: block;
+  font-size: 22px;
+  line-height: 1;
+}
+
+.login .loginContainer input {
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 19px;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+.login .loginContainer .btnContainer {
+  width: 100%;
+  padding: 24px 0;
+}
+
+.login .loginContainer .btnContainer p {
+  margin: 14px 0 0 0;
+  text-align: right;
+  color: #fff;
+}
+
+.login .loginContainer .btnContainer p span {
+  color: yellow;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  margin-left: 5px;
+  cursor: pointer;
+  transition: all 400ms ease-in-out;
+}
+
+.login .loginContainer .btnContainer p span:hover {
+  color: red;
+}
+
+.login .loginContainer .errorMsg {
+  color: red;
+  font-size: 16px;
+}
+
+.hero {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.hero button {
+  width: 80px;
+  height: 40px;
+  margin-top: 20px;
+  padding: 0px 8px;
+  background: #486952;
+}
+.hero button:hover {
+  background: #617467;
+}
